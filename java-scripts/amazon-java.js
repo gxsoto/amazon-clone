@@ -1,37 +1,9 @@
-const products = [{
-    //object for first product
-    productName: 'Black and Gray Athletic Cotton Socks - 6 Pairs',
-    image:'images/products/athletic-cotton-socks-6-pairs.jpg',
-    rating : {
-        stars: 45,
-        ratingCount: 87
-    },
-    priceInCents: 1090, },
-    //object for second product 
-    {
-    productName: 'Intermediate Size Basketball',
-    image:'images/products/intermediate-composite-basketball.jpg',
-    rating : {
-        stars: 40,
-        ratingCount: 127
-    },
-    priceInCents: 2095,   
-    },
-    //object for third product
-    {
-    productName: 'Adults Plain Cotton T-Shirt - 2 Pack',
-    image:'images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
-    rating : {
-        stars: 45,
-        ratingCount: 56
-    },
-    priceInCents: 799,   
-    },
-];
+
+let productsHTML = '';
 
 products.forEach((product) => {
     //create html for each product
-    const html = `
+    productsHTML += `
     <div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
@@ -46,7 +18,7 @@ products.forEach((product) => {
             <img class="product-rating-stars"
               src="images/ratings/rating-${product.rating.stars}.png">
             <div class="product-rating-count link-primary">
-              ${product.rating.ratingCount}
+              ${product.rating.count}
             </div>
           </div>
 
@@ -76,9 +48,11 @@ products.forEach((product) => {
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
-            Add tom Cart
+          <button class="add-to-cart-button button-primary
+          js-add-to-cart">
+            Add to Cart
           </button>
-        </div>`
-        console.log(html);
+        </div>`;
 });
+
+document.querySelector('.products-grid').innerHTML = productsHTML;
